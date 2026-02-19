@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: api
-        image: music-app-api:latest
-        imagePullPolicy: IfNotPresent
+        image: kl2300033362/mirchiweb-api:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
           protocol: TCP

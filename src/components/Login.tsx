@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Music, Eye, EyeOff } from 'lucide-react';
 import { User } from '@supabase/supabase-js';
 import { isSupabaseConfigured, supabase } from '../lib/supabase';
+import { postJson } from '../lib/api';
 
 interface LoginProps {
   onAuthenticated: () => void;
@@ -30,19 +31,24 @@ export const Login: React.FC<LoginProps> = ({ onAuthenticated }) => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
+  interface OtpVerifyResponse {
+    access_token?: string;
+    refresh_token?: string;
+    user?: User;
+  }
+
   const resetNotice = () => {
     setError('');
     setMessage('');
   };
 
+  const isNetworkFetchError = (value: unknown) => {
+    return value instanceof TypeError && value.message.toLowerCase().includes('fetch');
+  };
+
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     resetNotice();
-
-    if (!isSupabaseConfigured) {
-      setError('Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env');
-      return;
-    }
 
     const normalizedContact = contact.trim();
     if (!normalizedContact) {
@@ -67,29 +73,43 @@ export const Login: React.FC<LoginProps> = ({ onAuthenticated }) => {
     setLoading(true);
 
     try {
-      if (mode === 'email') {
-        const { error: signInError } = await supabase.auth.signInWithOtp({
-          email: normalizedContact,
-          options: { shouldCreateUser: true },
+      try {
+        await postJson<{ success: boolean; message: string }>('/auth/otp/request', {
+          mode,
+          contact: normalizedContact,
         });
-
-        if (signInError) {
-          setError(signInError.message);
-          return;
+      } catch (requestError) {
+        if (!isSupabaseConfigured) {
+          throw requestError;
         }
-      } else {
-        const { error: signInError } = await supabase.auth.signInWithOtp({
-          phone: normalizedContact,
-        });
 
-        if (signInError) {
-          setError(signInError.message);
-          return;
+        if (isNetworkFetchError(requestError)) {
+          if (mode === 'email') {
+            const { error: signInError } = await supabase.auth.signInWithOtp({
+              email: normalizedContact,
+              options: { shouldCreateUser: true },
+            });
+            if (signInError) {
+              throw signInError;
+            }
+          } else {
+            const { error: signInError } = await supabase.auth.signInWithOtp({
+              phone: normalizedContact,
+            });
+            if (signInError) {
+              throw signInError;
+            }
+          }
+        } else {
+          throw requestError;
         }
       }
 
       setMessage(`OTP sent to your ${mode === 'email' ? 'email' : 'phone number'}`);
       setStep('otp');
+    } catch (requestError) {
+      const messageText = requestError instanceof Error ? requestError.message : 'Failed to send OTP';
+      setError(messageText);
     } finally {
       setLoading(false);
     }
@@ -105,29 +125,68 @@ export const Login: React.FC<LoginProps> = ({ onAuthenticated }) => {
       return;
     }
 
+    if (!isSupabaseConfigured) {
+      setError('Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env');
+      return;
+    }
+
     setLoading(true);
     try {
-      const verifyPayload =
-        mode === 'email'
-          ? { email: contact.trim(), token: normalizedOtp, type: 'email' as const }
-          : { phone: contact.trim(), token: normalizedOtp, type: 'sms' as const };
+      let resolvedUser: User | null = null;
 
-      const { data, error: verifyError } = await supabase.auth.verifyOtp(verifyPayload);
+      try {
+        const data = await postJson<OtpVerifyResponse>('/auth/otp/verify', {
+          mode,
+          contact: contact.trim(),
+          token: normalizedOtp,
+        });
 
-      if (verifyError) {
-        setError(verifyError.message);
-        return;
+        if (!data.access_token || !data.refresh_token) {
+          setError('OTP verified but session was not created. Please try again.');
+          return;
+        }
+
+        const { data: sessionData, error: sessionError } = await supabase.auth.setSession({
+          access_token: data.access_token,
+          refresh_token: data.refresh_token,
+        });
+
+        if (sessionError || !sessionData.user) {
+          setError(sessionError?.message ?? 'Failed to establish authenticated session.');
+          return;
+        }
+
+        resolvedUser = data.user ?? sessionData.user;
+      } catch (verifyError) {
+        if (!isSupabaseConfigured || !isNetworkFetchError(verifyError)) {
+          throw verifyError;
+        }
+
+        const verifyPayload =
+          mode === 'email'
+            ? { email: contact.trim(), token: normalizedOtp, type: 'email' as const }
+            : { phone: contact.trim(), token: normalizedOtp, type: 'sms' as const };
+
+        const { data: directVerifyData, error: directVerifyError } = await supabase.auth.verifyOtp(verifyPayload);
+        if (directVerifyError || !directVerifyData.user) {
+          throw directVerifyError ?? new Error('OTP verification failed');
+        }
+
+        resolvedUser = directVerifyData.user;
       }
 
-      if (!data.user) {
+      if (!resolvedUser) {
         setError('Failed to verify OTP. Try again.');
         return;
       }
 
-      setCurrentUser(data.user);
-      setProfileEmail(data.user.email ?? (mode === 'email' ? contact.trim() : ''));
+      setCurrentUser(resolvedUser);
+      setProfileEmail(resolvedUser.email ?? (mode === 'email' ? contact.trim() : ''));
       setMessage('OTP verified successfully. Set your password.');
       setStep('password');
+    } catch (verifyError) {
+      const messageText = verifyError instanceof Error ? verifyError.message : 'Failed to verify OTP';
+      setError(messageText);
     } finally {
       setLoading(false);
     }

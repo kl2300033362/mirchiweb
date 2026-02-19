@@ -12,6 +12,8 @@ services:
       - "80:80"
     container_name: music-frontend
     restart: unless-stopped
+    depends_on:
+      - api
 
   api:
     build:
@@ -24,5 +26,3 @@ services:
       - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
     container_name: music-api
     restart: unless-stopped
-    depends_on:
-      - frontend

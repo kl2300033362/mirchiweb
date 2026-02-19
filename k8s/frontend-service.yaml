@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: music-frontend-service
+  namespace: default
+  labels:
+    app: music-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: music-frontend
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80

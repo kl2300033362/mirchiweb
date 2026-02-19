@@ -91,6 +91,73 @@ const readJsonBody = async (req: Request) => {
   }
 };
 
+const supabaseAuthRequest = async (path: string, payload: Record<string, unknown>) => {
+  const response = await fetch(`${supabaseUrl}/auth/v1${path}`, {
+    method: "POST",
+    headers: {
+      apikey: supabaseKey,
+      Authorization: `Bearer ${supabaseKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const raw = await response.text();
+  const data = raw ? JSON.parse(raw) : null;
+
+  if (!response.ok) {
+    const message = data?.msg || data?.error_description || data?.error || "OTP request failed";
+    throw new Error(message);
+  }
+
+  return data;
+};
+
+const requestOtp = async (req: Request) => {
+  const body = await readJsonBody(req);
+  const mode = String(body.mode ?? "").trim();
+  const contact = String(body.contact ?? "").trim();
+
+  if (!mode || !contact) {
+    return errorResponse("mode and contact are required", 422);
+  }
+
+  if (mode !== "email" && mode !== "phone") {
+    return errorResponse("mode must be email or phone", 422);
+  }
+
+  const payload =
+    mode === "email"
+      ? { email: contact, create_user: true }
+      : { phone: contact, create_user: true, channel: "sms" };
+
+  await supabaseAuthRequest("/otp", payload);
+  return jsonResponse({ success: true, message: "OTP sent successfully" });
+};
+
+const verifyOtp = async (req: Request) => {
+  const body = await readJsonBody(req);
+  const mode = String(body.mode ?? "").trim();
+  const contact = String(body.contact ?? "").trim();
+  const token = String(body.token ?? "").trim();
+
+  if (!mode || !contact || !token) {
+    return errorResponse("mode, contact and token are required", 422);
+  }
+
+  if (mode !== "email" && mode !== "phone") {
+    return errorResponse("mode must be email or phone", 422);
+  }
+
+  const payload =
+    mode === "email"
+      ? { email: contact, token, type: "email" }
+      : { phone: contact, token, type: "sms" };
+
+  const data = await supabaseAuthRequest("/verify", payload);
+  return jsonResponse(data);
+};
+
 const getSongs = async (req: Request, url: URL) => {
   const genre = url.searchParams.get("genre");
   const search = url.searchParams.get("search");
@@ -283,6 +350,14 @@ serve(async (req: Request) => {
   try {
     if (path === "/health") {
       return jsonResponse({ status: "healthy" });
+    }
+
+    if (req.method === "POST" && path === "/auth/otp/request") {
+      return await requestOtp(req);
+    }
+
+    if (req.method === "POST" && path === "/auth/otp/verify") {
+      return await verifyOtp(req);
     }
 
     if (req.method === "GET" && path === "/songs") {
