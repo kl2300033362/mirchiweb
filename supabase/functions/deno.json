@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-all --watch music-api/index.ts",
+    "start": "deno run --allow-all music-api/index.ts"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.168.0/",
+    "http/": "https://deno.land/std@0.168.0/http/"
+  }
+}

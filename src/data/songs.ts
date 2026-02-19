@@ -1,0 +1,130 @@
+import { Song } from '../types';
+
+export const SAMPLE_SONGS: Song[] = [
+  // Rock Classics
+  { id: '1', title: 'Bohemian Rhapsody', artist: 'Queen', album: 'A Night at the Opera', duration: 354, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '2', title: 'Stairway to Heaven', artist: 'Led Zeppelin', album: 'Led Zeppelin IV', duration: 482, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '3', title: 'Hotel California', artist: 'Eagles', album: 'Hotel California', duration: 391, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '4', title: 'Do You Want to Know a Secret', artist: 'The Beatles', album: 'Please Please Me', duration: 131, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '5', title: 'Take Me Out', artist: 'Franz Ferdinand', album: 'Franz Ferdinand', duration: 295, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '6', title: 'Black', artist: 'Pearl Jam', album: 'Vitalogy', duration: 317, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '7', title: 'In Bloom', artist: 'Nirvana', album: 'Nevermind', duration: 254, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '8', title: 'Wonderwall', artist: 'Oasis', album: '(What\'s the Story) Morning Glory?', duration: 258, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '9', title: 'Mr. Brightside', artist: 'The Killers', album: 'Hot Fuss', duration: 222, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '10', title: 'Seven Nation Army', artist: 'The White Stripes', album: 'White Stripes', duration: 231, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Pop Hits
+  { id: '11', title: 'Blinding Lights', artist: 'The Weeknd', album: 'After Hours', duration: 200, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '12', title: 'Levitating', artist: 'Dua Lipa', album: 'Future Nostalgia', duration: 203, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '13', title: 'Shape of You', artist: 'Ed Sheeran', album: 'Divide', duration: 234, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '14', title: 'Good as Hell', artist: 'Lizzo', album: 'Cuz I Love You', duration: 174, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '15', title: 'Uptown Funk', artist: 'Mark Ronson ft. Bruno Mars', album: 'Uptown Special', duration: 269, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '16', title: 'Shake It Off', artist: 'Taylor Swift', album: '1989', duration: 231, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '17', title: 'Sorry', artist: 'Justin Bieber', album: 'Purpose', duration: 200, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '18', title: 'Like It\'s Her Birthday', artist: 'Post Malone ft. The Weeknd', album: 'Beerbongs & Bentleys', duration: 251, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '19', title: 'Peaches', artist: 'Justin Bieber ft. Daniel Caesar', album: 'Justice', duration: 198, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '20', title: 'As It Was', artist: 'Harry Styles', album: 'Harry\'s House', duration: 173, genre: 'Pop', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Electronic/Dance
+  { id: '21', title: 'Midnight City', artist: 'M83', album: 'Hurry Up, We\'re Dreaming', duration: 244, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '22', title: 'Synthetic Love', artist: 'Kavinsky', album: 'Outrun', duration: 245, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '23', title: 'One Kiss', artist: 'Calvin Harris ft. Dua Lipa', album: 'Funk Wav Bounces', duration: 215, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '24', title: 'Animals', artist: 'Martin Garrix', album: 'Animals', duration: 207, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '25', title: 'Levels', artist: 'Avicii', album: 'True', duration: 226, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '26', title: 'We Are Young', artist: 'fun. ft. Janelle Monáe', album: 'Some Nights', duration: 242, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '27', title: 'Titanium', artist: 'David Guetta ft. Sia', album: 'Nothing but the Beat', duration: 241, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '28', title: 'Wake Me Up', artist: 'Avicii', album: 'True', duration: 271, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '29', title: 'Firestarter', artist: 'The Prodigy', album: 'The Fat of the Land', duration: 234, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '30', title: 'Sandstorm', artist: 'Darude', album: 'Before the Storm', duration: 397, genre: 'Electronic', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Hip Hop/Rap
+  { id: '31', title: 'God\'s Plan', artist: 'Drake', album: 'Scorpion', duration: 239, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '32', title: 'Lose Yourself', artist: 'Eminem', album: '8 Mile', duration: 326, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '33', title: 'In Da Club', artist: '50 Cent ft. Nate Dogg', album: 'The Massacre', duration: 228, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '34', title: 'Humble', artist: 'Kendrick Lamar', album: 'DAMN.', duration: 242, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '35', title: 'Mo\' Money Mo\' Problems', artist: 'The Notorious B.I.G.', album: 'Life After Death', duration: 233, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '36', title: 'California Love', artist: '2Pac ft. Dr. Dre', album: 'All Eyez on Me', duration: 264, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '37', title: 'Hotline Bling', artist: 'Drake', album: 'Views', duration: 244, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '38', title: 'Sicko Mode', artist: 'Travis Scott ft. Drake', album: 'Astroworld', duration: 293, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '39', title: 'Rap God', artist: 'Eminem', album: 'The Marshall Mathers LP 2', duration: 393, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '40', title: 'M.A.A.D City', artist: 'Kendrick Lamar', album: 'good kid, m.A.A.d city', duration: 333, genre: 'Hip Hop', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // R&B/Soul
+  { id: '41', title: 'Adore You', artist: 'Harry Styles', album: 'Fine Line', duration: 205, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '42', title: 'Blurred Lines', artist: 'Robin Thicke ft. T.I.', album: 'Blurred Lines', duration: 276, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '43', title: 'No Scrubs', artist: 'TLC', album: 'FanMail', duration: 263, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '44', title: 'Untitled (How Does It Feel)', artist: 'Don Toliver', album: 'Heaven or Hell', duration: 286, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '45', title: 'Redbone', artist: 'Childish Gambino', album: 'Awaken, My Love!', duration: 246, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '46', title: 'Kiss Me More', artist: 'Doja Cat ft. SZA', album: 'Planet Her', duration: 213, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '47', title: 'Finesse', artist: 'Bruno Mars', album: '24K Magic', duration: 204, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '48', title: 'Essence', artist: 'Wizkid ft. Tems', album: 'Made in Lagos', duration: 230, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '49', title: 'Come Through', artist: 'H.E.R. ft. Chris Brown', album: 'Back of My Mind', duration: 225, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '50', title: 'Drivers License', artist: 'Olivia Rodrigo', album: 'SOUR', duration: 241, genre: 'R&B', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Indie/Alternative
+  { id: '51', title: 'Electric Feel', artist: 'MGMT', album: 'Oracular Spectacular', duration: 286, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '52', title: 'Take Me Out', artist: 'Franz Ferdinand', album: 'Franz Ferdinand', duration: 295, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '53', title: 'Fluorescent Adolescent', artist: 'Arctic Monkeys', album: 'Whatever People Say I Am', duration: 201, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '54', title: 'Young Folks', artist: 'Peter Bjorn and John', album: 'Writer\'s Block', duration: 234, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '55', title: 'Sex on Fire', artist: 'Kings of Leon', album: 'Because of the Times', duration: 233, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '56', title: 'Float On', artist: 'Modest Mouse', album: 'We Were Dead Before the Ship Even Sank', duration: 326, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '57', title: 'Kill the Director', artist: 'The Wombats', album: 'A Guide to Blue Planet', duration: 193, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '58', title: 'Last Nite', artist: 'The Strokes', album: 'Is This It', duration: 189, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '59', title: 'Such Great Heights', artist: 'The Postal Service', album: 'Give Up', duration: 304, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '60', title: 'Fake Plastic Trees', artist: 'Radiohead', album: 'The Bends', duration: 315, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Latin/Reggae
+  { id: '61', title: 'Gasolina', artist: 'Daddy Yankee', album: 'Barrio Fino', duration: 222, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '62', title: 'Tití Me Preguntó', artist: 'Bad Bunny', album: 'Un x100to', duration: 270, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '63', title: 'Despacito', artist: 'Luis Fonsi ft. Daddy Yankee', album: 'Vida', duration: 228, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '64', title: 'Bailando', artist: 'Enrique Iglesias ft. Descemer Bueno', album: 'Bailando', duration: 221, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '65', title: 'Tití', artist: 'Bad Bunny', album: 'Un x100to', duration: 287, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '66', title: 'La Modelo', artist: 'Arcángel & Bad Bunny', album: 'De Trap Latino', duration: 240, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '67', title: 'Mi Gente', artist: 'J Balvin ft. Willy William', album: 'Vibras', duration: 265, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '68', title: 'One Dance', artist: 'Drake ft. Wizkid', album: 'Views', duration: 287, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '69', title: 'Dákiti', artist: 'Bad Bunny & Jhay Cortez', album: 'YHLQMDLG', duration: 336, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '70', title: 'La Jumpa', artist: 'Sensato & 50 Cent', album: 'Sensato', duration: 210, genre: 'Latin', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+
+  // K-Pop/Asian
+  { id: '71', title: 'Dynamite', artist: 'BTS', album: 'Map of the Soul', duration: 199, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '72', title: 'Butter', artist: 'BTS', album: 'Butter', duration: 162, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '73', title: 'How You Like That', artist: 'BLACKPINK', album: 'The Album', duration: 202, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '74', title: 'DDU-DU DDU-DU', artist: 'BLACKPINK', album: 'Square Two', duration: 203, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '75', title: 'Gangnam Style', artist: 'PSY', album: 'PSY 6 (Six Rules)', duration: 253, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '76', title: 'God\'s Menu', artist: 'Stray Kids', album: 'Go Live', duration: 180, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '77', title: 'Super Shy', artist: 'NewJeans', album: 'Super Shy', duration: 189, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '78', title: 'Taste of Love', artist: 'TWICE', album: 'Taste of Love', duration: 219, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '79', title: 'Permission to Dance', artist: 'BTS', album: 'Butter/Permission to Dance', duration: 209, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '80', title: 'Attention', artist: 'NewJeans', album: 'New Jeans', duration: 179, genre: 'K-Pop', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Country/Folk
+  { id: '81', title: 'Islands in the Stream', artist: 'Dolly Parton & Kenny Rogers', album: 'Islands in the Stream', duration: 280, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '82', title: 'Take Me Home, Country Roads', artist: 'John Denver', album: 'Poems, Prayers & Promises', duration: 210, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '83', title: 'Jolene', artist: 'Dolly Parton', album: 'Jolene', duration: 181, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '84', title: 'Boy Named Sue', artist: 'Johnny Cash', album: 'At San Quentin', duration: 303, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '85', title: 'Cruise', artist: 'Florida Georgia Line', album: 'Here\'s to the Good Times', duration: 237, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '86', title: 'Meant to Be', artist: 'Bebe Rexha ft. Florida Georgia Line', album: 'All Your Fault', duration: 221, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '87', title: 'Chicken Fried', artist: 'Zac Brown Band', album: 'The Foundation', duration: 255, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '88', title: 'My Church', artist: 'Maren Morris', album: 'Hero', duration: 248, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '89', title: 'Vice', artist: 'Wallen Morgan', album: 'Dangerous', duration: 211, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '90', title: 'Before He Cheats', artist: 'Carrie Underwood', album: 'Some Hearts', duration: 241, genre: 'Country', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Jazz/Blues
+  { id: '91', title: 'Take Five', artist: 'Dave Brubeck Quartet', album: 'Time Out', duration: 324, genre: 'Jazz', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '92', title: 'So What', artist: 'Miles Davis', album: 'Kind of Blue', duration: 567, genre: 'Jazz', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '93', title: 'Fly Me to the Moon', artist: 'Frank Sinatra', album: 'It Might as Well Be Swing', duration: 207, genre: 'Jazz', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '94', title: 'Autumn Leaves', artist: 'Bill Evans Trio', album: 'Everybody Digs Bill Evans', duration: 330, genre: 'Jazz', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '95', title: 'Clair de lune', artist: 'Claude Debussy', album: 'Suite bergamasque', duration: 450, genre: 'Jazz', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+  { id: '96', title: 'The Thrill Is Gone', artist: 'B.B. King', album: 'Completely Well', duration: 380, genre: 'Blues', cover_image_url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&h=300&fit=crop' },
+  { id: '97', title: 'Crossroads', artist: 'Cream', album: 'Wheels of Fire', duration: 337, genre: 'Blues', cover_image_url: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=300&h=300&fit=crop' },
+  { id: '98', title: 'Stormy Monday', artist: 'T-Bone Walker', album: 'Stormy Monday', duration: 178, genre: 'Blues', cover_image_url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop' },
+  { id: '99', title: 'I\'ve Been Loving You Too Long', artist: 'Otis Redding', album: 'Otis Blue', duration: 325, genre: 'Blues', cover_image_url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&h=300&fit=crop' },
+  { id: '100', title: 'Good Morning', artist: 'Howlin\' Wolf', album: 'The Howlin\' Wolf', duration: 210, genre: 'Blues', cover_image_url: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&h=300&fit=crop' },
+
+  // Additional Tracks (101-110+)
+  { id: '101', title: 'Dreams', artist: 'Fleetwood Mac', album: 'Rumours', duration: 242, genre: 'Rock', cover_image_url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop' },
+  { id: '102', title: 'Bitter Sweet Symphony', artist: 'The Verve', album: 'Urban Hymns', duration: 340, genre: 'Indie', cover_image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=300&h=300&fit=crop' },
+  { id: '103', title: 'No Woman No Cry', artist: 'Bob Marley', album: 'Rastaman Vibration', duration: 400, genre: 'Reggae', cover_image_url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=300&fit=crop' },
+  { id: '104', title: 'I Will Survive', artist: 'Gloria Gaynor', album: 'Love Tracks', duration: 296, genre: 'Soul', cover_image_url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&h=300&fit=crop' },
+  { id: '105', title: 'Superstition', artist: 'Stevie Wonder', album: 'Talking Book', duration: 276, genre: 'Soul', cover_image_url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=300&h=300&fit=crop' },
+];

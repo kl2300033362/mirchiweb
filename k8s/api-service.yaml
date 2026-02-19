@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: music-api-service
+  namespace: default
+  labels:
+    app: music-api
+spec:
+  type: ClusterIP
+  selector:
+    app: music-api
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8000
+    targetPort: 8000
