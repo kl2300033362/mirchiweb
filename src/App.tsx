@@ -10,7 +10,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('login');
   const [activeTab, setActiveTab] = useState('home');
 
-  const handleAuthenticated = () => {
+  const handleLogin = (_email: string, _password: string) => {
     setCurrentPage('favorites');
   };
 
@@ -62,7 +62,7 @@ function App() {
 
   // Login Page
   if (currentPage === 'login') {
-    return <Login onAuthenticated={handleAuthenticated} />;
+    return <Login onLogin={handleLogin} />;
   }
 
   // Favorite Singers Page
