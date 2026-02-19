@@ -116,10 +116,53 @@ Services exposed by default:
 Base service runs from `supabase/functions/music-api/index.ts` and exposes:
 
 - `GET /health` → health status
-- `GET /songs` → list songs
-- `GET /genres` → list genres
-- `GET /playlists` → list playlists
-- `GET /favorites` → list favorites
+- `GET /songs?genre=&search=&limit=&offset=` → filtered/paginated songs
+- `GET /songs/:id` → single song by id
+- `GET /genres` → unique genres
+- `GET /playlists?user_id=` → playlists (optionally by user)
+- `POST /playlists` → create playlist
+- `GET /playlists/:id/songs` → songs inside playlist
+- `POST /playlists/:id/songs` → add song to playlist
+- `DELETE /playlists/:id/songs/:song_id` → remove song from playlist
+- `GET /favorites?user_id=` → user favorites with song details
+- `POST /favorites` → add favorite song
+- `DELETE /favorites?user_id=&song_id=` → remove favorite song
+
+### Backend request examples
+
+Create playlist:
+
+```json
+{
+	"user_id": "<uuid>",
+	"name": "Road Trip",
+	"description": "Songs for travel",
+	"is_public": true
+}
+```
+
+Add song to playlist:
+
+```json
+{
+	"song_id": "<uuid>",
+	"position": 1
+}
+```
+
+Add favorite:
+
+```json
+{
+	"user_id": "<uuid>",
+	"song_id": "<uuid>"
+}
+```
+
+Supported API prefixes:
+- `/songs`, `/playlists`, etc. (direct function access)
+- `/api/...` (for ingress/proxy style routing)
+- `/music-api/...` (legacy prefixed routing)
 
 ## Kubernetes
 
