@@ -6,3 +6,4 @@ export { SearchBar } from './SearchBar';
 export { Header } from './Header';
 export { Login } from './Login';
 export { FavoriteSingers } from './FavoriteSingers';
+export { PersonalDetails } from './PersonalDetails';

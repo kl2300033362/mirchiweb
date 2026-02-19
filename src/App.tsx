@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sidebar, Player, SongList, Header, Login, FavoriteSingers } from './components';
+import { Sidebar, Player, SongList, Header, Login, FavoriteSingers, PersonalDetails } from './components';
 import { PlayerProvider } from './contexts/PlayerContext';
 import { SAMPLE_SONGS } from './data/songs';
 import './App.css';
@@ -46,6 +46,13 @@ function App() {
           <>
             <Header title="Search Music" subtitle="Find your next favorite track" />
             <SongList songs={SAMPLE_SONGS} />
+          </>
+        );
+      case 'personal-details':
+        return (
+          <>
+            <Header title="Personal Details" subtitle="View and edit your profile information" />
+            <PersonalDetails />
           </>
         );
       default:

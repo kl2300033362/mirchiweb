@@ -1,5 +1,5 @@
 import React from 'react';
-import { Music, Home, Search, Heart, BarChart3 } from 'lucide-react';
+import { Music, Home, Search, Heart, BarChart3, UserCircle2 } from 'lucide-react';
 
 interface SidebarProps {
   activeTab: string;
@@ -12,6 +12,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
     { id: 'search', label: 'Search', icon: Search },
     { id: 'favorites', label: 'Favorites', icon: Heart },
     { id: 'trending', label: 'Trending', icon: BarChart3 },
+    { id: 'personal-details', label: 'Personal Details', icon: UserCircle2 },
   ];
 
   return (
